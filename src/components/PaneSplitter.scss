@@ -1,0 +1,21 @@
+ul.context-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: lightgrey;
+  border: 1px solid darkgrey;
+  border-radius: 3px;
+
+  li {
+    padding: 0.5rem;
+    border-bottom: 1px solid darkgrey;
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: darken(lightgrey, 10%);
+      cursor: pointer;
+    }
+  }
+}
