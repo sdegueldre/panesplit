@@ -36,7 +36,8 @@ const PaneSplitter: React.FC = (props) => {
           flexDirection: paneDir,
           width: '100%',
           height: '100%',
-          border: '1px solid darkgrey',
+          borderRight: !content ? '1px solid darkgrey' : 'none',
+          borderBottom: !content ? '1px solid darkgrey' : 'none',
           boxSizing: 'border-box'
         }}
         onContextMenu={showContextMenu}
