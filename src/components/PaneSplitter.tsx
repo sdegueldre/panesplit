@@ -10,7 +10,6 @@ const PaneSplitter: React.FC = (props) => {
   function showContextMenu(e: React.MouseEvent){
     e.preventDefault();
     e.stopPropagation();
-    console.log(e.clientX, e.clientY);
     setMenuPosition({x: e.clientX, y: e.clientY});
     setMenuHidden(false);
   }
@@ -19,7 +18,7 @@ const PaneSplitter: React.FC = (props) => {
     setMenuHidden(true);
     console.log('Splitting', direction);
     setPaneDir(direction);
-    setContent([<PaneSplitter>{content}</PaneSplitter>, <PaneSplitter></PaneSplitter>]);
+    setContent([<PaneSplitter key="first">{content}</PaneSplitter>, <PaneSplitter key="second"></PaneSplitter>]);
   }
 
   function chooseContent(){
@@ -36,8 +35,8 @@ const PaneSplitter: React.FC = (props) => {
           flexDirection: paneDir,
           width: '100%',
           height: '100%',
-          borderRight: !content ? '1px solid darkgrey' : 'none',
-          borderBottom: !content ? '1px solid darkgrey' : 'none',
+          borderRight:  !Array.isArray(content) ? '1px solid darkgrey' : 'none',
+          borderBottom: !Array.isArray(content) ? '1px solid darkgrey' : 'none',
           boxSizing: 'border-box'
         }}
         onContextMenu={showContextMenu}
